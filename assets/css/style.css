@@ -84,13 +84,54 @@ a:hover { text-decoration-thickness: 4px; }
   padding-block: 0.9rem;
 }
 .monogram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.08rem;
   font-family: var(--font-mono);
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
   letter-spacing: 0.02em;
 }
-.monogram .dot { color: transparent; text-shadow: 0 0 0 var(--yellow); }
+.monogram .dot {
+  color: transparent;
+  text-shadow: 0 0 0 var(--yellow);
+  transition: transform 180ms ease, text-shadow 180ms ease;
+  animation: monogram-dot-intro 480ms ease-out 120ms 1 both;
+}
+.monogram:hover .dot,
+.monogram:focus-visible .dot {
+  animation: monogram-dot-pulse 420ms ease-in-out 1;
+}
+
+@keyframes monogram-dot-intro {
+  0% {
+    transform: scale(0.8);
+    text-shadow: 0 0 0 var(--yellow-soft);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 0 var(--yellow);
+  }
+}
+
+@keyframes monogram-dot-pulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 0 var(--yellow);
+  }
+  50% {
+    transform: scale(1.2);
+    text-shadow: 0 0 0 var(--yellow-soft);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 0 var(--yellow);
+  }
+}
 
 .site-nav ul {
   display: flex;
@@ -403,6 +444,7 @@ a:hover { text-decoration-thickness: 4px; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn, a { transition: none; }
+  .monogram .dot { animation: none; transform: none; }
 }
 
 /* ---- Responsive ---- */
