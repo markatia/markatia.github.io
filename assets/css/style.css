@@ -112,9 +112,9 @@ a:hover { text-decoration-thickness: 4px; }
 .hero { padding-block: clamp(3rem, 9vw, 6rem) clamp(3rem, 8vw, 5.5rem); }
 .hero .wrap {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+  align-items: start;
 }
 .hero h1 {
   font-family: var(--font-display);
@@ -166,6 +166,7 @@ a:hover { text-decoration-thickness: 4px; }
   line-height: 1.7;
   box-shadow: 0 20px 40px -24px rgba(18, 41, 61, 0.55);
   overflow-x: auto;
+  max-width: 100%;
 }
 .schema-card pre { margin: 0; }
 .schema-card .tag { color: var(--navy-300); }
@@ -175,6 +176,7 @@ a:hover { text-decoration-thickness: 4px; }
 
 /* ---- Sections ---- */
 .section { padding-block: clamp(2.75rem, 7vw, 4.5rem); }
+.hero + .section { border-top: 1px solid var(--navy-050); }
 .section + .section { border-top: 1px solid var(--navy-200); }
 
 .eyebrow {
@@ -261,17 +263,31 @@ a:hover { text-decoration-thickness: 4px; }
 .contact h2 { color: #fff; }
 .contact a { color: #fff; }
 .contact .email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-family: var(--font-mono);
-  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-size: 1.2rem;
   font-weight: 600;
 }
 .contact-links {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  flex-wrap: wrap;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+}
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+}
+.contact-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
 }
 
 /* ---- Footer ---- */
@@ -391,7 +407,6 @@ a:hover { text-decoration-thickness: 4px; }
 
 /* ---- Responsive ---- */
 @media (max-width: 880px) {
-  .hero .wrap { grid-template-columns: 1fr; }
   .schema-card { font-size: 0.78rem; }
 }
 
