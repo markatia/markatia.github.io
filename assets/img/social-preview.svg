@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Mark Atia portfolio social preview</title>
+  <desc id="desc">Senior Full Stack Developer focused on Shopify and Laravel.</desc>
+  <rect width="1200" height="630" fill="#12293d"/>
+  <rect x="56" y="56" width="1088" height="518" rx="14" fill="#1b3a57" stroke="#8ba3b8" stroke-width="2"/>
+  <text x="96" y="210" fill="#fcfcfb" font-family="Archivo, Arial, sans-serif" font-size="88" font-weight="800">MARK ATIA</text>
+  <text x="96" y="286" fill="#c9d5e0" font-family="Archivo, Arial, sans-serif" font-size="44" font-weight="600">Senior Full Stack Developer</text>
+  <text x="96" y="350" fill="#ffc94d" font-family="Fira Code, monospace" font-size="34">Shopify · Laravel · Vue.js</text>
+  <text x="96" y="430" fill="#c9d5e0" font-family="Archivo, Arial, sans-serif" font-size="30">15+ years shipping production e-commerce and web platforms</text>
+  <text x="96" y="514" fill="#8ba3b8" font-family="Fira Code, monospace" font-size="26">markatia.github.io</text>
+</svg>
