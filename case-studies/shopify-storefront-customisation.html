@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case study — Shopify storefront customisation · Mark Atia</title>
+  <meta name="description" content="Case study: extensive customisation of a commercial Shopify storefront for an established Australian retail brand — custom Liquid sections, metafields and dynamic sources, Git-based theme workflow.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%231b3a57'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='700' fill='%23ffc94d' text-anchor='middle'%3EMA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="monogram" href="../index.html">mark.atia<span class="dot">●</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html#work">work</a></li>
+          <li><a href="../index.html#services">services</a></li>
+          <li><a href="../index.html#about">about</a></li>
+          <li><a href="../index.html#contact">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="cs-header">
+      <div class="wrap">
+        <p class="eyebrow">// case study</p>
+        <h1>Shopify storefront customisation for an established Australian retail brand</h1>
+        <p class="note-confidential">The client is under a confidentiality arrangement, so the brand isn't named here and screenshots are sanitised. Happy to talk through the work in more detail on a call.</p>
+        <ul class="cs-facts">
+          <li>Shopify · Online Store 2.0</li>
+          <li>Liquid</li>
+          <li>Shopify CLI</li>
+          <li>Metafields &amp; dynamic sources</li>
+          <li>JavaScript / CSS</li>
+          <li>Git</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="cs-body">
+      <div class="wrap">
+
+        <section class="reveal">
+          <h2 class="cs-key">context</h2>
+          <p>An established Australian retail brand selling through physical retail and a Shopify storefront. The store runs on a commercial theme that needed substantial customisation — well beyond what theme settings allow — while staying maintainable and safe to update.</p>
+        </section>
+
+        <section class="reveal">
+          <h2 class="cs-key">role</h2>
+          <p>Sole developer on the theme work: scoping, build, and QA. The theme codebase is version-controlled in Git, developed locally with the Shopify CLI, and tested against a development store before changes reach the live storefront.</p>
+        </section>
+
+        <section class="reveal">
+          <h2 class="cs-key">work</h2>
+          <ul>
+            <li>Custom Liquid sections and blocks with schema settings, so the marketing team can rearrange and edit content in the theme editor without developer involvement.</li>
+            <li>Metafield definitions modelling the brand's structured product content, connected to templates through dynamic sources.</li>
+            <li>Template-level changes across product and collection pages — JSON templates and section groups rather than one-off hacks.</li>
+            <li>Front-end refinements in JavaScript and CSS, consistent with the brand's existing visual language.</li>
+            <li>A repeatable dev workflow: feature branches, CLI-driven theme previews, and structured handover notes for each change.</li>
+          </ul>
+
+          <!-- TODO: replace these placeholders with sanitised screenshots (blur or crop anything identifying) -->
+          <div class="fig-row">
+            <figure class="reveal">
+              <a href="../assets/img/metaobject-column-settings.png" target="_blank" rel="noopener"><img src="../assets/img/metaobject-column-settings.png" width="603" height="1566" loading="lazy" alt="Theme editor settings panel: a column block whose image, heading, text and button all resolve through a metaobject reference via dynamic sources"></a>
+              <figcaption>A column block wired to a metaobject reference — image, heading, text and button all resolve through dynamic sources, so content is managed as data.</figcaption>
+            </figure>
+            <figure class="reveal">
+              <a href="../assets/img/product-template-blocks.png" target="_blank" rel="noopener"><img src="../assets/img/product-template-blocks.png" width="605" height="2406" loading="lazy" alt="Theme editor block tree for a heavily customised product template with custom bundle blocks, sales points and metafield-driven tabs; identifying labels blurred"></a>
+              <figcaption>The customised product template — custom blocks, sales points and metafield-driven tabs. Identifying labels blurred.</figcaption>
+            </figure>
+          </div>
+          <figure class="reveal">
+            <a href="../assets/img/metafields-metaobjects.png" target="_blank" rel="noopener"><img src="../assets/img/metafields-metaobjects.png" width="1235" height="1433" loading="lazy" alt="Shopify product metafields panel showing a metaobject list definition with feature entries assigned to a product; client-identifying values blurred"></a>
+            <figcaption>Structured product content modelled as metafields and metaobject lists — the definitions the storefront resolves at render. Client-identifying values blurred.</figcaption>
+          </figure>
+        </section>
+
+        <section class="reveal">
+          <h2 class="cs-key">challenge</h2>
+          <p>The trickiest part wasn't the Liquid — it was environment parity. Metafield-driven dynamic sources that behaved correctly in production resolved differently against the development store, where metafield definitions and data didn't match. Diagnosing that meant separating theme-code issues from store-data issues, aligning metafield definitions across environments, and adjusting the workflow so changes are validated against representative data before release.</p>
+          <p>It's a good example of what senior experience buys on Shopify projects: knowing when the bug is in the code, and when it's in the platform configuration around the code.</p>
+        </section>
+
+        <section class="reveal">
+          <h2 class="cs-key">outcome</h2>
+          <p>An actively maintained, version-controlled theme the client's team can safely edit through the theme editor, with development continuing as an ongoing engagement.</p>
+          <!-- TODO: when you have permission + numbers, add 1–2 concrete results here
+               e.g. editor-managed content replacing developer requests, page-speed deltas, release cadence -->
+        </section>
+
+        <section class="reveal">
+          <p><a class="btn btn-primary" href="../index.html#contact">Discuss a similar project</a></p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year"></span> Mark Atia — Melbourne, Australia</span>
+      <span>Hand-built. No framework, no tracking.</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
