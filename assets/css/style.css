@@ -76,6 +76,19 @@ a:hover { text-decoration-thickness: 4px; }
 .site-header {
   border-bottom: 2px solid var(--navy-700);
   background: var(--paper);
+  position: relative;
+  z-index: 40;
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.site-header.is-sticky-active {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(252, 252, 251, 0.96);
+  border-bottom-color: var(--navy-200);
+  box-shadow: 0 12px 28px -24px rgba(18, 41, 61, 0.55);
+  backdrop-filter: saturate(120%) blur(4px);
 }
 .site-header .wrap {
   display: flex;
