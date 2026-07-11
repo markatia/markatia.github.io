@@ -158,7 +158,12 @@ a:hover { text-decoration-thickness: 4px; }
   font-size: 0.85rem;
   text-decoration: none;
 }
-.site-nav a:hover { text-decoration: underline; text-decoration-color: var(--yellow); text-decoration-thickness: 3px; }
+.site-nav a:hover,
+.site-nav a.is-active {
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+  text-decoration-thickness: 3px;
+}
 
 .nav-toggle { display: none; }
 

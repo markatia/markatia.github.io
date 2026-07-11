@@ -36,6 +36,46 @@ if (header && stickyTrigger) {
   window.addEventListener('resize', updateHeaderStickyState);
 }
 
+// Active nav item based on which section is in view
+var navLinks = Array.prototype.slice.call(document.querySelectorAll('.site-nav a[href*="#"]'));
+var navSections = navLinks
+  .map(function (link) {
+    var href = link.getAttribute('href') || '';
+    var hashIndex = href.indexOf('#');
+    if (hashIndex === -1) return null;
+
+    var id = href.slice(hashIndex + 1);
+    var section = id ? document.getElementById(id) : null;
+    return section ? { id: id, el: section, link: link } : null;
+  })
+  .filter(Boolean);
+
+if (navSections.length) {
+  var setActiveNav = function () {
+    var headerOffset = (header ? header.offsetHeight : 0) + 24;
+    var active = null;
+
+    navSections.forEach(function (section) {
+      if (section.el.getBoundingClientRect().top <= headerOffset) {
+        active = section;
+      }
+    });
+
+    // Near page bottom, prefer the last section
+    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 4)) {
+      active = navSections[navSections.length - 1];
+    }
+
+    navSections.forEach(function (section) {
+      section.link.classList.toggle('is-active', section === active);
+    });
+  };
+
+  setActiveNav();
+  window.addEventListener('scroll', setActiveNav, { passive: true });
+  window.addEventListener('resize', setActiveNav);
+}
+
 // Scroll reveals — skipped entirely for reduced motion
 var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var reveals = document.querySelectorAll('.reveal');
