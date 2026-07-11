@@ -19,12 +19,12 @@ if (toggle && nav) {
   });
 }
 
-// Header stickiness only after hero
+// Header stickiness after the first content block (hero or case-study header)
 var header = document.querySelector('.site-header');
-var hero = document.querySelector('.hero');
-if (header && hero) {
+var stickyTrigger = document.querySelector('.hero') || document.querySelector('.cs-header');
+if (header && stickyTrigger) {
   var updateHeaderStickyState = function () {
-    var triggerY = hero.offsetTop + hero.offsetHeight - header.offsetHeight;
+    var triggerY = stickyTrigger.offsetTop + stickyTrigger.offsetHeight - header.offsetHeight;
     var shouldStick = window.scrollY > triggerY;
 
     header.classList.toggle('is-sticky-active', shouldStick);
