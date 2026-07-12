@@ -498,4 +498,12 @@ a:hover { text-decoration-thickness: 4px; }
   .site-nav ul { flex-direction: column; gap: 0; padding: 0.5rem var(--gutter) 1rem; }
   .site-nav li { padding-block: 0.5rem; }
   .site-header { position: relative; }
+
+  /* Leave room under sticky header so section eyebrows stay visible */
+  #work,
+  #services,
+  #about,
+  #contact {
+    scroll-margin-top: 2.2rem;
+  }
 }

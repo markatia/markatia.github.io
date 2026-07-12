@@ -6,17 +6,23 @@ document.querySelectorAll('#year').forEach(function (el) {
 // Mobile nav
 var toggle = document.querySelector('.nav-toggle');
 var nav = document.querySelector('.site-nav');
+var monogram = document.querySelector('.monogram');
+var closeNav = function () {
+  if (!nav || !toggle) return;
+  nav.classList.remove('is-open');
+  toggle.setAttribute('aria-expanded', 'false');
+};
 if (toggle && nav) {
   toggle.addEventListener('click', function () {
     var open = nav.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
   nav.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') {
-      nav.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
+    if (e.target.tagName === 'A') closeNav();
   });
+}
+if (monogram) {
+  monogram.addEventListener('click', closeNav);
 }
 
 // Header stickiness after the first content block (hero or case-study header)
